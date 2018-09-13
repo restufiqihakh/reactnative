@@ -7,8 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image,TextInput,Button} from 'react-native';
 import Judul from './Component/Judul';
+import Login from './screenes/login';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,40 +22,39 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View>
-        <Judul title="BIODATA"/>
-        <Judul title="LOGIN"/>
-        <Judul title="NAMBAH"/>
-        <Text style={styles.welcome}>Hello!!!</Text>
-        <Text style={styles.instructions}>Akhdiyat Restu Fiqih</Text>
-        <Text style={styles.instructions}>XI RPL 3</Text>
-        <Text style={styles.instructions}>05</Text>
-        <Image
-        style={{width:200,height:250}}
-        resizeMode="contain"
-        source={{uri: 'https://scontent.fsub2-2.fna.fbcdn.net/v/t1.0-9/30741504_2105510276394808_8942516312823824384_n.jpg?_nc_cat=0&_nc_eui2=AeE7hbb5pVsCcLkOdFI5Dxh_cvSuERGPSbYQfb41oD8GpzBLKmLI-W7FAjEnSs_I2yVuvd-5ywHiL6u2AEmR7oHkCG7JxZTFFXSpKTjYXcUP0Q&oh=0c8c17af9cd704136b57f414f89ec568&oe=5C2260B0'}}
-        />
-      </View>
+      <View style={styles.container}>
+                <Image 
+                style={{width:120, height:120, marginLeft:120, marginTop:100}}
+                source={require('./dd.png')}
+                />
+                <TextInput
+                    style={{marginLeft:55,height: 40, width:250,marginTop:65}}
+                    placeholder="Username"
+                    onChangeText={(text) => this.setState({text})}
+                />
+
+                <TextInput
+                    style={{height: 40,marginLeft:55,width:250, marginTop:10}}
+                    placeholder="Password"
+                    onChangeText={(text) => this.setState({text})}
+                />
+
+                <Button style ={{margin: 20, width:10,height:10,flexDirection: 'row',justifyContent: 'space-between'}}
+                title="Login"
+                color="#841584"
+                />
+            </View>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#b0ffff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color:'#00bfc9'
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#00bfc9',
-    marginBottom: 5,
-  },
+container: {
+        flex:3,
+    },
+    container: {
+      flex:1,
+      backgroundColor:'#89D0EC'
+    },
 });
